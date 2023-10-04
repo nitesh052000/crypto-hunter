@@ -7,6 +7,7 @@ import {
   Route,
 } from "react-router-dom/cjs/react-router-dom.min";
 import { makeStyles } from "@material-ui/core";
+import Alert from "./components/Alert";
 
 function App() {
   const useStyles = makeStyles(() => ({
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" component={Homepage} exact />
         <Route path="/coins/:id" component={Coinpage} />
       </div>
+      <Alert />
     </BrowserRouter>
   );
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { CoinList } from "../config/api";
+
 import { CryptoState } from "../CryptoContext";
 import { useEffect } from "react";
-import axios from "axios";
+
 import { makeStyles } from "@material-ui/core";
 import {
   Container,
@@ -45,28 +45,28 @@ export function numberwithcommas(x) {
 }
 
 const CoinTable = () => {
-  const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // const [coins, setCoins] = useState([]);
+  // const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const history = useHistory();
   const [page, setPage] = useState(1);
 
-  const { currency } = CryptoState();
+  const { currency, coins, loading } = CryptoState();
 
   const classes = useStyles();
 
-  const fetchcoins = async () => {
-    setLoading(true);
+  // const fetchcoins = async () => {
+  //   setLoading(true);
 
-    const { data } = await axios.get(CoinList(currency));
-    setCoins(data);
+  //   const { data } = await axios.get(CoinList(currency));
+  //   setCoins(data);
 
-    setLoading(false);
-  };
+  //   setLoading(false);
+  // };
 
-  useEffect(() => {
-    fetchcoins();
-  }, [currency]);
+  // useEffect(() => {
+  //   fetchcoins();
+  // }, [currency]);
 
   const darkTheme = createTheme({
     palette: {
