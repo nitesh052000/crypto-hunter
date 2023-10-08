@@ -10,7 +10,8 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import CoinFor from "../components/CoinFor";
-import ReactHtmlParse from "react-html-parser";
+
+import parse from "html-react-parser";
 import { db } from "../Firebase";
 import { doc, setDoc } from "firebase/firestore";
 
@@ -153,7 +154,7 @@ const Coinpage = () => {
         </Typography>
 
         <Typography variant="subtitle1" className={classes.description}>
-          {ReactHtmlParse(coin?.description.en.split(". ")[0])}
+          {parse(coin?.description.en.split(". ")[0])}
         </Typography>
 
         <div className={classes.marketdata}>
