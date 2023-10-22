@@ -66,12 +66,16 @@ const useStyles = makeStyles({
   },
 });
 
+export function numberwithcommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 const UserSidebar = () => {
   const classes = useStyles();
   const [state, setState] = React.useState({
     right: false,
   });
-  const { user, setAlert, watchlist, coins } = CryptoState();
+  const { user, setAlert, watchlist, coins, Symbol } = CryptoState();
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -168,7 +172,8 @@ const UserSidebar = () => {
                         <div className={classes.coin}>
                           <span>{coin.name}</span>
                           <span style={{ display: "flesx", gap: 8 }}>
-                            {coin.Symbol}
+                            {Symbol}{" "}
+                            {numberwithcommas(coin.current_price.toFixed(2))}
                             <AiFillDelete
                               style={{ cursor: "pointer" }}
                               fontSize="16"

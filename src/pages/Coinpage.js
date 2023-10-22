@@ -29,8 +29,6 @@ const Coinpage = () => {
     setCoin(data);
   };
 
-  // console.log(coin);
-
   useEffect(() => {
     fetchcoins();
   }, []);
@@ -235,6 +233,7 @@ const Coinpage = () => {
                 width: "100%",
                 height: 40,
                 backgroundColor: inwatchlist ? "#ff0000" : "#EEBC1D",
+                color: "black",
               }}
               onClick={inwatchlist ? removefromwatchlist : addtowatchlist}
             >
